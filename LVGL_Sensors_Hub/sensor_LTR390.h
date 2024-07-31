@@ -31,7 +31,7 @@ void update_ltr390(uint8_t addr)
         ltr.configInterrupt(false, LTR390_MODE_UVS);
 
         ui_ltr390_box = lv_obj_create(ui_Flex);
-        lv_obj_set_size(ui_ltr390_box, LV_SIZE_CONTENT, (gfx->height() - 88) / 2);
+        lv_obj_set_size(ui_ltr390_box, LV_SIZE_CONTENT, (gfx->height() - LV_HEADER_SIZE - 48) / 2);
         lv_obj_center(ui_ltr390_box);
         lv_obj_set_style_bg_color(ui_ltr390_box, ltr390_color, LV_PART_MAIN | LV_STATE_DEFAULT);
         // lv_obj_set_flex_grow(ui_ltr390_box, 1);
@@ -39,7 +39,7 @@ void update_ltr390(uint8_t addr)
         ui_ltr390_Label = lv_label_create(ui_ltr390_box);
         lv_obj_set_size(ui_ltr390_Label, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
         lv_obj_set_align(ui_ltr390_Label, LV_ALIGN_CENTER);
-        lv_obj_set_style_text_font(ui_ltr390_Label, &lv_font_montserrat_32, LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_text_font(ui_ltr390_Label, LV_FONT_FIGURE, LV_PART_MAIN | LV_STATE_DEFAULT);
         lv_label_set_text(ui_ltr390_Label, "LTR390");
 
         ui_Screen[screen_count] = lv_obj_create(NULL);
@@ -49,12 +49,13 @@ void update_ltr390(uint8_t addr)
         lv_obj_set_size(screen_label, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
         lv_obj_set_align(screen_label, LV_ALIGN_TOP_MID);
         lv_obj_set_y(screen_label, 4);
+        lv_obj_set_style_text_font(screen_label, LV_FONT_HEADER, LV_PART_MAIN | LV_STATE_DEFAULT);
         lv_label_set_text_fmt(screen_label, "0x%02x: LTR390 ALS+UV Sensor", addr);
 
         ui_ltr390_Chart = lv_chart_create(ui_Screen[screen_count]);
-        lv_obj_set_size(ui_ltr390_Chart, gfx->width() - 20, gfx->height() - 40);
+        lv_obj_set_size(ui_ltr390_Chart, gfx->width() - 20, gfx->height() - LV_HEADER_SIZE);
         lv_obj_center(ui_ltr390_Chart);
-        lv_obj_set_y(ui_ltr390_Chart, 10);
+        lv_obj_set_y(ui_ltr390_Chart, (LV_HEADER_SIZE - 20) / 2);
         lv_chart_set_range(ui_ltr390_Chart, LV_CHART_AXIS_PRIMARY_Y, 0, 2000);
         lv_chart_set_type(ui_ltr390_Chart, LV_CHART_TYPE_LINE); /*Show lines and points too*/
 

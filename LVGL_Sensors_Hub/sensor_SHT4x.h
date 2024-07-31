@@ -37,7 +37,7 @@ void update_sht4x(uint8_t addr)
         sht4x.setHeater(SHT4X_NO_HEATER);
 
         ui_sht4x_box1 = lv_obj_create(ui_Flex);
-        lv_obj_set_size(ui_sht4x_box1, LV_SIZE_CONTENT, (gfx->height() - 88) / 2);
+        lv_obj_set_size(ui_sht4x_box1, LV_SIZE_CONTENT, (gfx->height() - LV_HEADER_SIZE - 48) / 2);
         lv_obj_center(ui_sht4x_box1);
         lv_obj_set_style_bg_color(ui_sht4x_box1, sht4x_color1, LV_PART_MAIN | LV_STATE_DEFAULT);
         // lv_obj_set_flex_grow(ui_sht4x_box1, 1);
@@ -45,11 +45,11 @@ void update_sht4x(uint8_t addr)
         ui_sht4x_Label1 = lv_label_create(ui_sht4x_box1);
         lv_obj_set_size(ui_sht4x_Label1, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
         lv_obj_set_align(ui_sht4x_Label1, LV_ALIGN_CENTER);
-        lv_obj_set_style_text_font(ui_sht4x_Label1, &lv_font_montserrat_32, LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_text_font(ui_sht4x_Label1, LV_FONT_FIGURE, LV_PART_MAIN | LV_STATE_DEFAULT);
         lv_label_set_text(ui_sht4x_Label1, "SHT4x");
 
         ui_sht4x_box2 = lv_obj_create(ui_Flex);
-        lv_obj_set_size(ui_sht4x_box2, LV_SIZE_CONTENT, (gfx->height() - 88) / 2);
+        lv_obj_set_size(ui_sht4x_box2, LV_SIZE_CONTENT, (gfx->height() - LV_HEADER_SIZE - 48) / 2);
         lv_obj_center(ui_sht4x_box2);
         lv_obj_set_style_bg_color(ui_sht4x_box2, sht4x_color2, LV_PART_MAIN | LV_STATE_DEFAULT);
         // lv_obj_set_flex_grow(ui_sht4x_box2, 1);
@@ -57,7 +57,7 @@ void update_sht4x(uint8_t addr)
         ui_sht4x_Label2 = lv_label_create(ui_sht4x_box2);
         lv_obj_set_size(ui_sht4x_Label2, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
         lv_obj_set_align(ui_sht4x_Label2, LV_ALIGN_CENTER);
-        lv_obj_set_style_text_font(ui_sht4x_Label2, &lv_font_montserrat_32, LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_text_font(ui_sht4x_Label2, LV_FONT_FIGURE, LV_PART_MAIN | LV_STATE_DEFAULT);
         lv_label_set_text(ui_sht4x_Label2, "SHT4x");
 
         ui_Screen[screen_count] = lv_obj_create(NULL);
@@ -67,12 +67,13 @@ void update_sht4x(uint8_t addr)
         lv_obj_set_size(screen_label, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
         lv_obj_set_align(screen_label, LV_ALIGN_TOP_MID);
         lv_obj_set_y(screen_label, 4);
+        lv_obj_set_style_text_font(screen_label, LV_FONT_HEADER, LV_PART_MAIN | LV_STATE_DEFAULT);
         lv_label_set_text_fmt(screen_label, "0x%02x: SHT4x Temperature & Humidity Sensor", addr);
 
         ui_sht4x_Chart = lv_chart_create(ui_Screen[screen_count]);
-        lv_obj_set_size(ui_sht4x_Chart, gfx->width() - 20, gfx->height() - 40);
+        lv_obj_set_size(ui_sht4x_Chart, gfx->width() - 20, gfx->height() - LV_HEADER_SIZE);
         lv_obj_center(ui_sht4x_Chart);
-        lv_obj_set_y(ui_sht4x_Chart, 10);
+        lv_obj_set_y(ui_sht4x_Chart, (LV_HEADER_SIZE - 20) / 2);
         lv_chart_set_range(ui_sht4x_Chart, LV_CHART_AXIS_PRIMARY_Y, 0, 100);
         lv_chart_set_type(ui_sht4x_Chart, LV_CHART_TYPE_LINE); /*Show lines and points too*/
 

@@ -23,8 +23,11 @@
  * Customize font size:
  * #define LV_FONT_MONTSERRAT_20 1
  * #define LV_FONT_MONTSERRAT_32 1
- * #define LV_FONT_DEFAULT &lv_font_montserrat_20
  ******************************************************************************/
+#define LV_HEADER_SIZE 40
+#define LV_FONT_HEADER &lv_font_montserrat_20
+#define LV_FONT_FIGURE &lv_font_montserrat_32
+
 #include <Wire.h>
 
 #include "T_Display_S3_AMOLED.h"

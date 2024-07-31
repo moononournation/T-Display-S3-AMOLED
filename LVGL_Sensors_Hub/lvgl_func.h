@@ -137,12 +137,13 @@ void lvgl_init()
   lv_obj_set_size(label, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
   lv_obj_set_align(label, LV_ALIGN_TOP_MID);
   lv_obj_set_y(label, 4);
+  lv_obj_set_style_text_font(label, LV_FONT_HEADER, LV_PART_MAIN | LV_STATE_DEFAULT);
   lv_label_set_text(label, "LVGL Sensors Hub");
 
   ui_Flex = lv_obj_create(ui_Screen[0]);
-  lv_obj_set_size(ui_Flex, gfx->width() - 20, gfx->height() - 40);
+  lv_obj_set_size(ui_Flex, gfx->width() - 20, gfx->height() - LV_HEADER_SIZE);
   lv_obj_center(ui_Flex);
-  lv_obj_set_y(ui_Flex, 10);
+  lv_obj_set_y(ui_Flex, (LV_HEADER_SIZE - 20) / 2);
   lv_obj_set_flex_flow(ui_Flex, LV_FLEX_FLOW_ROW_WRAP);
 
   lv_disp_load_scr(ui_Screen[0]);

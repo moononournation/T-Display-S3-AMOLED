@@ -25,7 +25,7 @@ void update_pct2075(uint8_t addr)
       if (xSemaphoreTake(lvglSemaphore, (TickType_t)10) == pdTRUE)
       {
         ui_pct2075_box = lv_obj_create(ui_Flex);
-        lv_obj_set_size(ui_pct2075_box, LV_SIZE_CONTENT, (gfx->height() - 88) / 2);
+        lv_obj_set_size(ui_pct2075_box, LV_SIZE_CONTENT, (gfx->height() - LV_HEADER_SIZE - 48) / 2);
         lv_obj_center(ui_pct2075_box);
         lv_obj_set_style_bg_color(ui_pct2075_box, pct2075_color, LV_PART_MAIN | LV_STATE_DEFAULT);
         // lv_obj_set_flex_grow(ui_pct2075_box, 1);
@@ -33,7 +33,7 @@ void update_pct2075(uint8_t addr)
         ui_pct2075_Label = lv_label_create(ui_pct2075_box);
         lv_obj_set_size(ui_pct2075_Label, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
         lv_obj_set_align(ui_pct2075_Label, LV_ALIGN_CENTER);
-        lv_obj_set_style_text_font(ui_pct2075_Label, &lv_font_montserrat_32, LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_text_font(ui_pct2075_Label, LV_FONT_FIGURE, LV_PART_MAIN | LV_STATE_DEFAULT);
         lv_label_set_text(ui_pct2075_Label, "PCT2075");
 
         ui_Screen[screen_count] = lv_obj_create(NULL);
@@ -43,12 +43,13 @@ void update_pct2075(uint8_t addr)
         lv_obj_set_size(screen_label, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
         lv_obj_set_align(screen_label, LV_ALIGN_TOP_MID);
         lv_obj_set_y(screen_label, 4);
+        lv_obj_set_style_text_font(screen_label, LV_FONT_HEADER, LV_PART_MAIN | LV_STATE_DEFAULT);
         lv_label_set_text_fmt(screen_label, "0x%02x: PCT2075 Temperature Sensor", addr);
 
         ui_pct2075_Chart = lv_chart_create(ui_Screen[screen_count]);
-        lv_obj_set_size(ui_pct2075_Chart, gfx->width() - 20, gfx->height() - 40);
+        lv_obj_set_size(ui_pct2075_Chart, gfx->width() - 20, gfx->height() - LV_HEADER_SIZE);
         lv_obj_center(ui_pct2075_Chart);
-        lv_obj_set_y(ui_pct2075_Chart, 10);
+        lv_obj_set_y(ui_pct2075_Chart, (LV_HEADER_SIZE - 20) / 2);
         lv_chart_set_range(ui_pct2075_Chart, LV_CHART_AXIS_PRIMARY_Y, 0, 40);
         lv_chart_set_type(ui_pct2075_Chart, LV_CHART_TYPE_LINE); /*Show lines and points too*/
 
