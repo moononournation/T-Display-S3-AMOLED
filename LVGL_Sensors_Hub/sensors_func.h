@@ -3,6 +3,7 @@
 #include "sensor_LTR390.h"
 #include "sensor_PCT2075.h"
 #include "sensor_SGP40.h"
+#include "sensor_SHT4x.h"
 #include "sensor_TSL2591.h"
 #include "sensor_VCNL4040.h"
 
@@ -82,7 +83,7 @@ SENSOR_FUNC *func_list[] = {
     nullptr,
     nullptr,
     nullptr,
-    nullptr,
+    update_sht4x,
     nullptr,
     nullptr,
     nullptr,
