@@ -31,7 +31,7 @@ void update_ltr390(uint8_t addr)
         ltr.configInterrupt(false, LTR390_MODE_UVS);
 
         ui_ltr390_box = lv_obj_create(ui_Flex);
-        lv_obj_set_size(ui_ltr390_box, LV_SIZE_CONTENT, (gfx->height() - LV_HEADER_SIZE - 48) / 2);
+        lv_obj_set_size(ui_ltr390_box, LV_SIZE_CONTENT, (gfx->height() - LV_HEADER_SIZE - 40) / 2);
         lv_obj_center(ui_ltr390_box);
         lv_obj_set_style_bg_color(ui_ltr390_box, ltr390_color, LV_PART_MAIN | LV_STATE_DEFAULT);
         // lv_obj_set_flex_grow(ui_ltr390_box, 1);

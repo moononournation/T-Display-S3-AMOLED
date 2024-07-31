@@ -25,7 +25,7 @@ void update_pct2075(uint8_t addr)
       if (xSemaphoreTake(lvglSemaphore, (TickType_t)10) == pdTRUE)
       {
         ui_pct2075_box = lv_obj_create(ui_Flex);
-        lv_obj_set_size(ui_pct2075_box, LV_SIZE_CONTENT, (gfx->height() - LV_HEADER_SIZE - 48) / 2);
+        lv_obj_set_size(ui_pct2075_box, LV_SIZE_CONTENT, (gfx->height() - LV_HEADER_SIZE - 40) / 2);
         lv_obj_center(ui_pct2075_box);
         lv_obj_set_style_bg_color(ui_pct2075_box, pct2075_color, LV_PART_MAIN | LV_STATE_DEFAULT);
         // lv_obj_set_flex_grow(ui_pct2075_box, 1);

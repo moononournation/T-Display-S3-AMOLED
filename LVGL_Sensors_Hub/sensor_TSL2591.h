@@ -40,7 +40,7 @@ void update_tsl2591(uint8_t addr)
         // tsl.setTiming(TSL2591_INTEGRATIONTIME_600MS);  // longest integration time (dim light)
 
         ui_tsl2591_box = lv_obj_create(ui_Flex);
-        lv_obj_set_size(ui_tsl2591_box, LV_SIZE_CONTENT, (gfx->height() - LV_HEADER_SIZE - 48) / 2);
+        lv_obj_set_size(ui_tsl2591_box, LV_SIZE_CONTENT, (gfx->height() - LV_HEADER_SIZE - 40) / 2);
         lv_obj_center(ui_tsl2591_box);
         lv_obj_set_style_bg_color(ui_tsl2591_box, tsl2591_color, LV_PART_MAIN | LV_STATE_DEFAULT);
         // lv_obj_set_flex_grow(ui_tsl2591_box, 1);

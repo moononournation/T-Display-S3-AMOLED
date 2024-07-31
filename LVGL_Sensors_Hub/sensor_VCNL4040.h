@@ -31,7 +31,7 @@ void update_vcnl4040(uint8_t addr)
         vcnl4040.setProximityHighResolution(false);
 
         ui_vcnl4040_box = lv_obj_create(ui_Flex);
-        lv_obj_set_size(ui_vcnl4040_box, LV_SIZE_CONTENT, (gfx->height() - LV_HEADER_SIZE - 48) / 2);
+        lv_obj_set_size(ui_vcnl4040_box, LV_SIZE_CONTENT, (gfx->height() - LV_HEADER_SIZE - 40) / 2);
         lv_obj_center(ui_vcnl4040_box);
         lv_obj_set_style_bg_color(ui_vcnl4040_box, vcnl4040_color, LV_PART_MAIN | LV_STATE_DEFAULT);
         // lv_obj_set_flex_grow(ui_vcnl4040_box, 1);

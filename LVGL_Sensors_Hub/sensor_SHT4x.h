@@ -37,7 +37,7 @@ void update_sht4x(uint8_t addr)
         sht4x.setHeater(SHT4X_NO_HEATER);
 
         ui_sht4x_box1 = lv_obj_create(ui_Flex);
-        lv_obj_set_size(ui_sht4x_box1, LV_SIZE_CONTENT, (gfx->height() - LV_HEADER_SIZE - 48) / 2);
+        lv_obj_set_size(ui_sht4x_box1, LV_SIZE_CONTENT, (gfx->height() - LV_HEADER_SIZE - 40) / 2);
         lv_obj_center(ui_sht4x_box1);
         lv_obj_set_style_bg_color(ui_sht4x_box1, sht4x_color1, LV_PART_MAIN | LV_STATE_DEFAULT);
         // lv_obj_set_flex_grow(ui_sht4x_box1, 1);
@@ -49,7 +49,7 @@ void update_sht4x(uint8_t addr)
         lv_label_set_text(ui_sht4x_Label1, "SHT4x");
 
         ui_sht4x_box2 = lv_obj_create(ui_Flex);
-        lv_obj_set_size(ui_sht4x_box2, LV_SIZE_CONTENT, (gfx->height() - LV_HEADER_SIZE - 48) / 2);
+        lv_obj_set_size(ui_sht4x_box2, LV_SIZE_CONTENT, (gfx->height() - LV_HEADER_SIZE - 40) / 2);
         lv_obj_center(ui_sht4x_box2);
         lv_obj_set_style_bg_color(ui_sht4x_box2, sht4x_color2, LV_PART_MAIN | LV_STATE_DEFAULT);
         // lv_obj_set_flex_grow(ui_sht4x_box2, 1);
