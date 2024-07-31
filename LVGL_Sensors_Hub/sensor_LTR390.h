@@ -1,6 +1,5 @@
 #pragma once
 
-#include <Adafruit_Sensor.h>
 #include <Adafruit_LTR390.h>
 
 Adafruit_LTR390 ltr;
