@@ -67,7 +67,7 @@ void update_sht4x(uint8_t addr)
         lv_obj_set_size(screen_label, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
         lv_obj_set_align(screen_label, LV_ALIGN_TOP_MID);
         lv_obj_set_y(screen_label, 4);
-        lv_label_set_text_fmt(screen_label, "0x%02x: SGP40 Air Quality Sensor", addr);
+        lv_label_set_text_fmt(screen_label, "0x%02x: SHT4x Temperature & Humidity Sensor", addr);
 
         ui_sht4x_Chart = lv_chart_create(ui_Screen[screen_count]);
         lv_obj_set_size(ui_sht4x_Chart, gfx->width() - 20, gfx->height() - 40);
