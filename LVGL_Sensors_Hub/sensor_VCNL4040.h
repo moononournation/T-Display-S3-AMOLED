@@ -9,7 +9,7 @@ lv_obj_t *ui_vcnl4040_Chart;
 lv_chart_series_t *ui_vcnl4040_Chart_Series;
 lv_obj_t *ui_vcnl4040_box;
 lv_obj_t *ui_vcnl4040_Label;
-lv_color_t vcnl4040_color = lv_palette_main(LV_PALETTE_BLUE);
+lv_color_t vcnl4040_color = lv_palette_main(LV_PALETTE_CYAN);
 
 void update_vcnl4040(uint8_t addr)
 {
